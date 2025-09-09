@@ -15,12 +15,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build:react": "react-scripts build",
-    "build": "vite build",
-    "dev": "vite",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev:node": "node your-main-file.js"
+    "dev": "node your-main-file.js"
   },
   "engines":{
     "node": ">=22"
