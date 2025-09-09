@@ -1,20 +1,28 @@
-const tg = window.Telegram.WebApp;
 export function useTelegram() {
+    // Функция для безопасного получения tg
+    const getTelegram = () => {
+        return window.Telegram?.WebApp;
+    }
 
     const onClose = () => {
-  tg.close()
+        getTelegram()?.close();
     }
+
     const onToggleButton = () => {
-        if(tg.mainButton.isVisible){
-            tg.mainButton.hide();
+        const tg = getTelegram();
+        if(tg?.MainButton?.isVisible){
+            tg.MainButton.hide();
         } else {
-            tg.mainButton.show();
+            tg?.MainButton?.show();
         }
     }
-    return{
+
+    const tg = getTelegram();
+
+    return {
         onClose,
         onToggleButton,
         tg,
-        user: tg.initDataUnsafe?.user,
+        user: tg?.initDataUnsafe?.user,
     }
 }
