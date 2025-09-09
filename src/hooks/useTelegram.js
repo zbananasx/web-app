@@ -1,27 +1,20 @@
-import { useCallback } from 'react';
-
 export function useTelegram() {
-    // Важно: получаем tg внутри хука при каждом вызове
-    const tg = window.Telegram?.WebApp;
+    const tg = window.Telegram.WebApp;
     
-    const onClose = useCallback(() => {
-        tg?.close();
-    }, [tg]);
-
-    const onToggleButton = useCallback(() => {
-        if (tg?.MainButton?.isVisible) {
-            tg.MainButton.hide();
+    const onClose = () => {
+        tg.close()
+    }
+    const onToggleButton = () => {
+        if(tg.mainButton.isVisible){
+            tg.mainButton.hide();
         } else {
-            tg?.MainButton?.show();
+            tg.mainButton.show();
         }
-    }, [tg]);
-
-    return {
+    }
+    return{
         onClose,
         onToggleButton,
         tg,
-        user: tg?.initDataUnsafe?.user,
-        // Добавляем флаг для проверки окружения
-        isTelegramEnv: !!tg
-    };
+        user: tg.initDataUnsafe?.user,
+    }
 }
