@@ -3,11 +3,12 @@ import { useEffect } from 'react';
 import './App.css';
 import { useTelegram } from './hooks/useTelegram';
 function App() {
-    const {tg,onToggleButton} = useTelegram();
+    const {tg,onClose, onToggleButton} = useTelegram();
 
     useEffect(() => {
       tg.ready();
-    }, [])
+      tg.expand();
+    }, [tg])
 
 
   return (
