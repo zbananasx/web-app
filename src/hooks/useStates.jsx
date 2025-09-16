@@ -73,7 +73,7 @@
     useEffect (() => {
          const intervalId = setInterval(rebirthMayView, 0)
 
-         return () => clearInterval(intervalId)
+         return () => clearInterval(intervalId) // eslint-disable-next-line
       }, [score])
     return {
         upgrade1,
