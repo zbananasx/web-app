@@ -1,6 +1,8 @@
    import { useState } from "react";
    export const useAllInfo = () => {
-   const [totalUpgrade1Gives, setTotalUpgrade1Gives] = useState(0);
+    const [totalAuto1Gives, setTotalAuto1Gives] = useState(0);
+    const [totalAuto2Gives, setTotalAuto2Gives] = useState(0);
+    const [totalUpgrade1Gives, setTotalUpgrade1Gives] = useState(0);
     const [score, setScore] = useState(1);
     const [clickPerOne, setClickPerOne] = useState(1);
     const [upgrade1View, setUpgrade1View] = useState(0);
@@ -27,6 +29,7 @@
           setScore(score => score + 1)
         },1000)
         setAuto1View(auto1View => auto1View + 1)
+        setTotalAuto1Gives(totalAuto1Gives => totalAuto1Gives + 1)
       }
     }
     function auto2(){
@@ -36,6 +39,7 @@
           setScore(score => score + 3)
         },1000)
         setAuto2View(auto2View => auto2View + 1)
+        setTotalAuto2Gives(totalAuto2Gives => totalAuto2Gives + 3)
       }
     }
     return {
@@ -51,5 +55,7 @@
         upgrade1View,
         auto1View,
         auto2View,
+        totalAuto1Gives,
+        totalAuto2Gives,
     }
    }
