@@ -1,19 +1,38 @@
-import React from 'react';
-import { useEffect } from 'react';
-import './App.css';
-import { useTelegram } from './hooks/useTelegram';
+import React, { useState } from 'react';
 function App() {
-    const {tg, onToggleButton} = useTelegram();
-
-    useEffect(() => {
-      tg.ready();
-    }, [tg])
-
-
+    const [score, setScore] = useState(1)
+    const [clickPerOne, setClickPerOne] = useState(1)
+    function onClick() {
+      setScore(score => score + clickPerOne)
+    }
+    function updgrade1() {
+      if (score >= 25) {
+        setScore(score => score - 25)
+        setClickPerOne (clickPerOne => clickPerOne + 1)
+      }
+    }
   return (
     <div className="App">
-      work
-      <button onClick={onToggleButton}>toggle</button>
+      <div>
+        <span>
+          сила клика: {clickPerOne}
+        </span>
+      </div>
+      <div>
+        <span>
+          кликов у тебя: {score}
+        </span>
+      </div>
+      <div>
+        <button onClick={onClick}>
+    кнопочка
+        </button>
+      </div>
+      <div>
+        <button onClick={updgrade1}>
+    апгрейд на +1
+        </button>
+      </div>
     </div>
   );
 }
