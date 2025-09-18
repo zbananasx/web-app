@@ -93,7 +93,6 @@
         totalAuto2Gives,
         totalRebirthPoints,
         totalRebirthPointsView,
-        upgrade1Gives,
         setUpgrade1Gives,
     }
    }

@@ -19,7 +19,6 @@ function App() {
     auto2,
     rebirth,
     rebirthUpg1,
-    upgrade1Gives,
   } = useAllInfo();
 
   // Проверяем, можем ли купить улучшения
@@ -65,7 +64,7 @@ function App() {
         >
            Улучшить клик
           <span className="upgrade-cost">Стоит: 25 кликов</span>
-          <span className="upgrade-benefit">Даёт: +{upgrade1Gives} к клику</span>
+          <span className="upgrade-benefit">Даёт: +{totalUpgrade1Gives} к клику</span>
         </button>
 
         <button 
@@ -75,7 +74,7 @@ function App() {
         >
            Авто-фарм 1
           <span className="upgrade-cost">Стоит: 50 кликов</span>
-          <span className="upgrade-benefit">Даёт: +1 клик/сек</span>
+          <span className="upgrade-benefit">Даёт: +{totalAuto1Gives}</span>
         </button>
 
         <button 
@@ -85,7 +84,7 @@ function App() {
         >
            Авто-фарм 2
           <span className="upgrade-cost">Стоит: 250 кликов</span>
-          <span className="upgrade-benefit">Даёт: +3 клика/сек</span>
+          <span className="upgrade-benefit">Даёт: +{totalAuto2Gives}</span>
         </button>
       </div>
 
