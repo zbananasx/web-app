@@ -1,10 +1,224 @@
-*{
-  margin: 0;
-  padding: 0;
+/* App.css */
+.App {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 16px;
+  background: var(--tg-theme-bg-color, #ffffff);
+  color: var(--tg-theme-text-color, #222222);
+  min-height: 100vh;
   box-sizing: border-box;
 }
 
-body {
-  background: var(--tg-theme-bg-color);
-  color: var(--tg-theme-text-color);
+/* Заголовки и текст */
+.App h1, .App h2, .App h3 {
+  color: var(--tg-theme-text-color, #222222);
+  margin-bottom: 16px;
+}
+
+/* Контейнеры статистики */
+.stat-container {
+  background: var(--tg-theme-secondary-bg-color, #f8f9fa);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--tg-theme-hint-color, #99999933);
+}
+
+.stat-row:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.stat-label {
+  font-weight: 500;
+  color: var(--tg-theme-hint-color, #666666);
+}
+
+.stat-value {
+  font-weight: 600;
+  color: var(--tg-theme-text-color, #222222);
+}
+
+/* Основная кнопка клика */
+.click-button {
+  background: linear-gradient(135deg, #007aff, #0056b3);
+  border: none;
+  border-radius: 16px;
+  padding: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  margin: 20px 0;
+  width: 100%;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 16px rgba(0, 122, 255, 0.3);
+}
+
+.click-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.2);
+}
+
+/* Кнопки улучшений */
+.upgrade-button {
+  background: var(--tg-theme-button-color, #40a7e3);
+  border: none;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--tg-theme-button-text-color, #ffffff);
+  cursor: pointer;
+  margin: 8px 0;
+  width: 100%;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.upgrade-button:disabled {
+  background: var(--tg-theme-secondary-bg-color, #cccccc);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.upgrade-button:not(:disabled):hover {
+  background: var(--tg-theme-button-color, #40a7e3);
+  opacity: 0.9;
+}
+
+.upgrade-button:not(:disabled):active {
+  transform: scale(0.98);
+}
+
+/* Стоимость улучшений */
+.upgrade-cost {
+  font-size: 14px;
+  color: var(--tg-theme-hint-color, #666666);
+  margin-top: 4px;
+  display: block;
+}
+
+.upgrade-benefit {
+  font-size: 14px;
+  color: #34c759;
+  font-weight: 500;
+  display: block;
+}
+
+/* Секции */
+.section {
+  background: var(--tg-theme-secondary-bg-color, #f8f9fa);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 16px 0;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--tg-theme-text-color, #222222);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Ребирт секция */
+.rebirth-section {
+  background: linear-gradient(135deg, #ff9500, #ff3b30);
+  color: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.rebirth-section .section-title {
+  color: white;
+}
+
+.rebirth-button {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  margin: 8px 0;
+  width: 100%;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.rebirth-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.rebirth-button:not(:disabled):hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Анимации */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.pulse {
+  animation: pulse 0.3s ease;
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+  .App {
+    padding: 12px;
+  }
+  
+  .click-button {
+    padding: 16px;
+    font-size: 20px;
+  }
+  
+  .upgrade-button {
+    padding: 14px;
+    font-size: 14px;
+  }
+  
+  .stat-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
+/* Progress bars */
+.progress-bar {
+  width: 100%;
+  height: 6px;
+  background: var(--tg-theme-secondary-bg-color, #eeeeee);
+  border-radius: 3px;
+  margin: 8px 0;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #34c759, #28cd41);
+  border-radius: 3px;
+  transition: width 0.3s ease;
 }
