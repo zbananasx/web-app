@@ -29,7 +29,7 @@ const {
         </span>
       </div>
       <div>
-        <span>
+        <span id='sum'>
           кликов у тебя: {score}
           <span> стоит 50 кликов, дает +1 клик в секунду</span>
         </span>
